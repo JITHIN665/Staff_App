@@ -135,10 +135,10 @@ class UIHelpers {
   );
   
   // Input decoration
-  static InputDecoration get searchInputDecoration => InputDecoration(
+  static InputDecoration searchInputDecoration({Widget? prefixIcon}) => InputDecoration(
     hintText: '客室名または名前で検索',
     hintStyle: const TextStyle(color: Colors.grey),
-    prefixIcon: const Icon(Icons.search, color: Colors.grey),
+    prefixIcon: prefixIcon,
     filled: true,
     fillColor: Colors.white,
     border: OutlineInputBorder(

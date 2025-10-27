@@ -33,7 +33,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
           : null,
       title: Text(
         title,
-        style: AppTheme.bodyLarge(fontWeight: FontWeight.w400),
+        style: AppTheme.heading3(fontWeight: FontWeight.w400),
       ),
       actions: actions,
     );

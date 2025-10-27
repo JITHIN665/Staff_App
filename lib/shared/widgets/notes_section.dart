@@ -23,7 +23,7 @@ class NotesSection extends StatelessWidget {
             Icon(
               Icons.edit_outlined,
               size: 20,
-              color: AppTheme.textSecondaryColor,
+              color:  AppTheme.primaryColor,
             ),
             const SizedBox(width: 12),
             Text(
@@ -39,9 +39,8 @@ class NotesSection extends StatelessWidget {
           width: double.infinity,
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.grey[50],
+            color: AppTheme.cardBackground,
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: AppTheme.borderColor),
           ),
           child: Text(
             notes!,

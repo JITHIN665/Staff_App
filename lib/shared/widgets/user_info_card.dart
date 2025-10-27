@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
+import '../helpers/app_icons.dart';
 
 class UserInfoCard extends StatelessWidget {
   final String? name;
@@ -38,14 +39,14 @@ class UserInfoCard extends StatelessWidget {
           else ...[
             if (name != null)
               _UserInfoRow(
-                icon: Icons.person_outline,
+                icon: AppIcons.userIcon(size: 20, color: AppTheme.textSecondaryColor),
                 label: '名前',
                 value: name!,
               ),
             if (name != null && email != null) const SizedBox(height: 12),
             if (email != null)
               _UserInfoRow(
-                icon: Icons.email_outlined,
+                icon: AppIcons.idCardIcon(size: 20, color: AppTheme.textSecondaryColor),
                 label: 'メールアドレス',
                 value: email!,
               ),
@@ -57,7 +58,7 @@ class UserInfoCard extends StatelessWidget {
 }
 
 class _UserInfoRow extends StatelessWidget {
-  final IconData icon;
+  final Widget icon;
   final String label;
   final String value;
 
@@ -71,10 +72,10 @@ class _UserInfoRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(
-          icon,
-          size: 20,
-          color: AppTheme.textSecondaryColor,
+        SizedBox(
+          width: 20,
+          height: 20,
+          child: icon,
         ),
         const SizedBox(width: 12),
         Text(

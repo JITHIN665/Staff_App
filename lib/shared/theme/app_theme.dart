@@ -21,7 +21,7 @@ class AppTheme {
   // Background Colors
   static const Color backgroundColor = Color(0xFFF2F2F7);  // Light Grey Background
   static const Color surfaceColor = Color(0xFFFFFFFF);     // White
-  static const Color cardBackground = Color(0xFFFFFFFF);   // White
+  static const Color cardBackground = Color(0xFFF4F6F8);   // White
   
   // Text Colors
   static const Color textPrimaryColor = Color(0xFF001434);    // Black

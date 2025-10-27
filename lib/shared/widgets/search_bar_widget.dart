@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../helpers/ui_helpers.dart';
+import '../helpers/app_icons.dart';
 
 class SearchBarWidget extends StatelessWidget {
   final TextEditingController controller;
@@ -21,9 +22,13 @@ class SearchBarWidget extends StatelessWidget {
       padding: const EdgeInsets.all(UIHelpers.defaultPadding),
       child: TextField(
         controller: controller,
-        decoration: UIHelpers.searchInputDecoration.copyWith(
+        decoration: UIHelpers.searchInputDecoration(
+          prefixIcon: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: AppIcons.searchIcon(size: 20, color: Colors.grey),
+          ),
+        ).copyWith(
           hintText: hintText,
-          
         ),
         keyboardType: keyboardType,
         textInputAction: TextInputAction.search,

@@ -21,7 +21,7 @@ class SettingsScreen extends ConsumerWidget {
       appBar: const CommonAppBar(
         title: '設定',
       ),
-      body: _SettingsContent(
+      body: SettingsContent(
         userName: authState.user?.name,
         userEmail: authState.user?.email,
         isLoading: !authState.isInitialized,
@@ -30,12 +30,12 @@ class SettingsScreen extends ConsumerWidget {
   }
 }
 
-class _SettingsContent extends ConsumerWidget {
+class SettingsContent extends ConsumerWidget {
   final String? userName;
   final String? userEmail;
   final bool isLoading;
 
-  const _SettingsContent({
+  const SettingsContent({super.key, 
     required this.userName,
     required this.userEmail,
     required this.isLoading,
@@ -60,60 +60,43 @@ class _SettingsContent extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // User Information Card
           UserInfoCard(
             name: userName,
             email: userEmail,
             isLoading: isLoading,
           ),
-          
           const SizedBox(height: 32),
-          
-          // App Settings Section
           const SectionHeader(title: 'アプリ設定'),
           const SizedBox(height: 16),
-          
           SettingItemCard(
             icon: Icons.notifications_outlined,
             title: '通知設定',
             subtitle: 'プッシュ通知の設定',
             onTap: () {
-              // TODO: Implement notification settings
             },
           ),
-          
           const SizedBox(height: 12),
-          
           SettingItemCard(
             icon: Icons.language_outlined,
             title: '言語設定',
             subtitle: 'アプリの言語を変更',
             onTap: () {
-              // TODO: Implement language settings
             },
           ),
-          
           const SizedBox(height: 12),
-          
           SettingItemCard(
             icon: Icons.dark_mode_outlined,
             title: 'テーマ設定',
             subtitle: 'ダークモードの切り替え',
             onTap: () {
-              // TODO: Implement theme settings
             },
           ),
-          
           const SizedBox(height: 32),
-          
-          // Account Section
           const SectionHeader(title: 'アカウント'),
           const SizedBox(height: 16),
-          
           LogoutButton(
             onPressed: () => _handleLogout(context, ref),
           ),
-          
           const SizedBox(height: 20),
         ],
       ),

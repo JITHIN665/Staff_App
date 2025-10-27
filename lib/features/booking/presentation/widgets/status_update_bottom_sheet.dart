@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../shared/widgets/custom_button.dart';
 import '../../../../shared/theme/app_theme.dart';
+import '../../../../shared/helpers/app_icons.dart';
 import '../../domain/entities/booking.dart';
 
 class StatusUpdateBottomSheet extends StatefulWidget {
@@ -48,7 +49,6 @@ class _StatusUpdateBottomSheetState extends State<StatusUpdateBottomSheet> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // Handle bar
               Container(
                 width: 40,
                 height: 4,
@@ -57,40 +57,28 @@ class _StatusUpdateBottomSheetState extends State<StatusUpdateBottomSheet> {
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
-              
               const SizedBox(height: 20),
-              
-              // Title
-              Text(
-                '客室ステータス更新',
-                style: AppTheme.heading3(),
-              ),
-              
-              const SizedBox(height: 24),
-              
-              // Status label
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  '予約済み',
-                  style: AppTheme.labelMedium(
-                    color: AppTheme.textSecondaryColor,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AppIcons.pencilIcon(size: 20, color: AppTheme.primaryColor),
+                  const SizedBox(width: 8),
+                  Text(
+                    '客室ステータス更新',
+                    style: AppTheme.heading3(),
                   ),
-                ),
+                ],
               ),
-              
+              const SizedBox(height: 24),
+              Divider(),
               const SizedBox(height: 12),
-              
-              // Status options
-              _StatusOption(
+              StatusOption(
                 label: '予約済み',
                 isSelected: _selectedStatus == BookingStatus.reserved,
                 onTap: () => setState(() => _selectedStatus = BookingStatus.reserved),
               ),
-              
               const SizedBox(height: 8),
-              
-              _StatusOption(
+              StatusOption(
                 label: 'チェックイン済み',
                 isSelected: _selectedStatus == BookingStatus.checkedIn,
                 onTap: () => setState(() => _selectedStatus = BookingStatus.checkedIn),
@@ -98,7 +86,7 @@ class _StatusUpdateBottomSheetState extends State<StatusUpdateBottomSheet> {
               
               const SizedBox(height: 8),
               
-              _StatusOption(
+              StatusOption(
                 label: 'チェックアウト済み',
                 isSelected: _selectedStatus == BookingStatus.checkedOut,
                 onTap: () => setState(() => _selectedStatus = BookingStatus.checkedOut),
@@ -106,7 +94,6 @@ class _StatusUpdateBottomSheetState extends State<StatusUpdateBottomSheet> {
               
               const SizedBox(height: 32),
               
-              // Buttons
               Row(
                 children: [
                   Expanded(
@@ -138,12 +125,12 @@ class _StatusUpdateBottomSheetState extends State<StatusUpdateBottomSheet> {
   }
 }
 
-class _StatusOption extends StatelessWidget {
+class StatusOption extends StatelessWidget {
   final String label;
   final bool isSelected;
   final VoidCallback onTap;
 
-  const _StatusOption({
+  const StatusOption({super.key, 
     required this.label,
     required this.isSelected,
     required this.onTap,
@@ -164,7 +151,7 @@ class _StatusOption extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: isSelected 
-                      ? const Color(0xFF00338D) 
+                      ? AppTheme.primaryColor
                       : Colors.grey[400]!,
                   width: 2,
                 ),
@@ -177,7 +164,7 @@ class _StatusOption extends StatelessWidget {
                         height: 10,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Color(0xFF00338D),
+                          color: AppTheme.primaryColor,
                         ),
                       ),
                     )

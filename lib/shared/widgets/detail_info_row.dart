@@ -2,17 +2,15 @@ import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 
 class DetailInfoRow extends StatelessWidget {
-  final IconData icon;
+  final Widget icon;
   final String label;
   final String value;
-  final Color? iconColor;
 
   const DetailInfoRow({
     super.key,
     required this.icon,
     required this.label,
     required this.value,
-    this.iconColor,
   });
 
   @override
@@ -22,10 +20,10 @@ class DetailInfoRow extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(
-            icon,
-            size: 20,
-            color: iconColor ?? AppTheme.textSecondaryColor,
+          SizedBox(
+            width: 20,
+            height: 20,
+            child: icon,
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -41,7 +39,7 @@ class DetailInfoRow extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   value,
-                  style: AppTheme.bodyLarge(),
+                  style: AppTheme.bodyLarge(color: AppTheme.primaryColor,),
                 ),
               ],
             ),

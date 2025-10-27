@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../shared/widgets/common_app_bar.dart';
 import '../../../../shared/theme/app_theme.dart';
+import '../../../../shared/helpers/app_icons.dart';
 
 class NotificationsScreen extends ConsumerWidget {
   const NotificationsScreen({super.key});
@@ -25,10 +26,11 @@ class NotificationsScreen extends ConsumerWidget {
                 color: Colors.grey[100],
                 shape: BoxShape.circle,
               ),
-              child: Icon(
-                Icons.notifications_off_outlined,
-                size: 64,
-                color: Colors.grey[400],
+              child: Center(
+                child: AppIcons.bellIcon(
+                  size: 64,
+                  color: Colors.grey[400],
+                ),
               ),
             ),
             const SizedBox(height: 24),

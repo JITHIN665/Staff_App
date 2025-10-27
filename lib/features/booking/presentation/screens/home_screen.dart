@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:staff_app/shared/theme/app_theme.dart';
 import 'booking_list_screen.dart';
 import '../../../settings/presentation/screens/settings_screen.dart';
 import '../../../notifications/presentation/screens/notifications_screen.dart';
+import '../../../../shared/helpers/app_icons.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -26,6 +28,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       body: _screens[_currentIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
+          color: Colors.white,
           border: Border(
             top: BorderSide(
               color: Colors.grey[200]!,
@@ -33,37 +36,60 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             ),
           ),
         ),
-        child: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.white,
-          selectedItemColor: const Color(0xFF1976D2),
-          unselectedItemColor: Colors.grey[600],
-          selectedFontSize: 12,
-          unselectedFontSize: 12,
-          elevation: 0,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.event_note_outlined, size: 28),
-              activeIcon: Icon(Icons.event_note, size: 28),
-              label: '予約',
+        child: SafeArea(
+          child: SizedBox(
+            height: 72,
+            child: BottomNavigationBar(
+              currentIndex: _currentIndex,
+              onTap: (index) {
+                setState(() {
+                  _currentIndex = index;
+                });
+              },
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: Colors.white,
+              selectedItemColor: AppTheme.primaryColor,
+              unselectedItemColor: Colors.grey[600],
+              selectedFontSize: 12,
+              unselectedFontSize: 12,
+              elevation: 0,
+              items: [
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: const EdgeInsets.only(bottom: 4),
+                    child: AppIcons.calendarCheckIcon(size: 28, color: Colors.grey[600]),
+                  ),
+                  activeIcon: Padding(
+                    padding: const EdgeInsets.only(bottom: 4),
+                    child: AppIcons.calendarCheckIcon(size: 28, color: AppTheme.primaryColor),
+                  ),
+                  label: '予約',
+                ),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: const EdgeInsets.only(bottom: 4),
+                    child: AppIcons.bellIcon(size: 28, color: Colors.grey[600]),
+                  ),
+                  activeIcon: Padding(
+                    padding: const EdgeInsets.only(bottom: 4),
+                    child: AppIcons.bellIcon(size: 28, color: AppTheme.primaryColor),
+                  ),
+                  label: '通知',
+                ),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: const EdgeInsets.only(bottom: 4),
+                    child: AppIcons.settingsIcon(size: 28, color: Colors.grey[600]),
+                  ),
+                  activeIcon: Padding(
+                    padding: const EdgeInsets.only(bottom: 4),
+                    child: AppIcons.settingsIcon(size: 28, color: AppTheme.primaryColor),
+                  ),
+                  label: '設定',
+                ),
+              ],
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.notifications_outlined, size: 28),
-              activeIcon: Icon(Icons.notifications, size: 28),
-              label: '通知',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings_outlined, size: 28),
-              activeIcon: Icon(Icons.settings, size: 28),
-              label: '設定',
-            ),
-          ],
+          ),
         ),
       ),
     );

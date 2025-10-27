@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:staff_app/shared/theme/app_theme.dart';
 import '../../../../shared/helpers/ui_helpers.dart';
 import '../../../../shared/helpers/navigation_helpers.dart';
+import '../../../../shared/helpers/app_icons.dart';
 import '../../../../shared/widgets/common_app_bar.dart';
 import '../../../../shared/widgets/detail_info_row.dart';
 import '../../../../shared/widgets/notes_section.dart';
@@ -41,7 +43,7 @@ class ErrorView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CommonAppBar(
-        title: '予約詳細',
+        title: '',
         showBackButton: true,
         onBackPressed: onBackPressed,
       ),
@@ -73,31 +75,31 @@ class BookingDetailsContent extends ConsumerWidget {
           children: [
             if (booking.companyName != null && booking.companyName!.isNotEmpty)
               DetailInfoRow(
-                icon: Icons.business_outlined,
+                icon: AppIcons.buildingIcon(size: 20, color: AppTheme.primaryColor),
                 label: '法人名',
                 value: booking.companyName!,
               ),
 
             DetailInfoRow(
-              icon: Icons.person_outline,
+              icon: AppIcons.userIcon(size: 20, color: AppTheme.primaryColor),
               label: '宿泊者名',
               value: booking.guestName,
             ),
 
             DetailInfoRow(
-              icon: Icons.bed_outlined,
+              icon: AppIcons.doubleRoomIcon(size: 20, color: AppTheme.primaryColor),
               label: '客室',
               value: booking.roomNumber,
             ),
 
             DetailInfoRow(
-              icon: Icons.people_outline,
+              icon: AppIcons.idCardIcon(size: 20, color: AppTheme.primaryColor),
               label: '宿泊人数',
               value: '${booking.numberOfGuests}名',
             ),
 
             DetailInfoRow(
-              icon: Icons.calendar_today_outlined,
+              icon: AppIcons.calendarCheckIcon(size: 20, color: AppTheme.primaryColor),
               label: '宿泊期間',
               value: UIHelpers.formatDateRange(
                 booking.checkIn,
