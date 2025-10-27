@@ -1,0 +1,296 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@staffapp.com",
+      "password": "password123",
+      "name": "田中太郎",
+      "phone": "+81-90-1234-5678",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "email": "staff@staffapp.com",
+      "password": "password123",
+      "name": "佐藤花子",
+      "phone": "+81-90-2345-6789",
+      "role": "staff"
+    },
+    {
+      "id": "3",
+      "email": "manager@staffapp.com",
+      "password": "password123",
+      "name": "山田次郎",
+      "phone": "+81-90-3456-7890",
+      "role": "manager"
+    }
+  ],
+  "passwordResets": [
+    {
+      "email": "satotaro@staff.com",
+      "id": 1
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 2
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 3
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 4
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 5
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 6
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 7
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 8
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 9
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 10
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 11
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 12
+    },
+    {
+      "email": "admin@staffapp.com",
+      "id": 13
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 14
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 15
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 16
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 17
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 18
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 19
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 20
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 21
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 22
+    },
+    {
+      "email": "satotaro@staff.com",
+      "id": 23
+    },
+    {
+      "email": "staff@staffapp.com",
+      "id": 24
+    },
+    {
+      "email": "admin@staffapp.com",
+      "id": 25
+    },
+    {
+      "email": "admin@staffapp.com",
+      "id": 26
+    },
+    {
+      "email": "admin@staffapp.com",
+      "id": 27
+    },
+    {
+      "email": "admin@staffapp.com",
+      "id": 28
+    },
+    {
+      "email": "admin@staffapp.com",
+      "id": 29
+    },
+    {
+      "email": "admin@staffapp.com",
+      "id": 30
+    },
+    {
+      "email": "admin@staffapp.com",
+      "id": 31
+    }
+  ],
+  "bookings": [
+    {
+      "id": "booking-001",
+      "roomNumber": "101",
+      "guestName": "佐藤",
+      "companyName": "株式会社ネクストソリューションズ",
+      "numberOfGuests": 2,
+      "guestEmail": "sato@example.com",
+      "guestPhone": "+81-80-1111-2222",
+      "checkIn": "2025-07-01T14:00:00.000Z",
+      "checkOut": "2025-08-24T11:00:00.000Z",
+      "status": "reserved",
+      "totalAmount": 450000,
+      "notes": "VIP社員の長期滞在予定"
+    },
+    {
+      "id": "booking-002",
+      "roomNumber": "102",
+      "guestName": "三宮",
+      "companyName": "",
+      "numberOfGuests": 1,
+      "guestEmail": "sannomiya@example.com",
+      "guestPhone": "+81-80-2222-3333",
+      "checkIn": "2025-07-01T15:00:00.000Z",
+      "checkOut": "2025-08-24T11:00:00.000Z",
+      "status": "currently_staying",
+      "totalAmount": 600000,
+      "notes": "ビジネス客"
+    },
+    {
+      "id": "booking-003",
+      "roomNumber": "204",
+      "guestName": "小松原",
+      "companyName": "株式会社グローバルトレード",
+      "numberOfGuests": 4,
+      "guestEmail": "komatsubara@example.com",
+      "guestPhone": "+81-80-3333-4444",
+      "checkIn": "2025-07-24T14:00:00.000Z",
+      "checkOut": "2025-08-31T11:00:00.000Z",
+      "status": "reserved",
+      "totalAmount": 800000,
+      "notes": "家族旅行"
+    },
+    {
+      "id": "booking-004",
+      "roomNumber": "205",
+      "guestName": "近藤",
+      "companyName": "",
+      "numberOfGuests": 2,
+      "guestEmail": "kondo@example.com",
+      "guestPhone": "+81-80-4444-5555",
+      "checkIn": "2025-07-24T15:00:00.000Z",
+      "checkOut": "2025-08-31T11:00:00.000Z",
+      "status": "currently_staying",
+      "totalAmount": 550000,
+      "notes": ""
+    },
+    {
+      "id": "booking-005",
+      "roomNumber": "206",
+      "guestName": "佐藤",
+      "companyName": "株式会社テクノソリューション",
+      "numberOfGuests": 3,
+      "guestEmail": "sato2@example.com",
+      "guestPhone": "+81-80-5555-6666",
+      "checkIn": "2025-06-20T13:00:00.000Z",
+      "checkOut": "2025-07-25T11:00:00.000Z",
+      "status": "checked_out",
+      "totalAmount": 650000,
+      "notes": "チェックアウト完了"
+    },
+    {
+      "id": "booking-006",
+      "roomNumber": "301",
+      "guestName": "山田",
+      "companyName": "",
+      "numberOfGuests": 2,
+      "guestEmail": "yamada@example.com",
+      "guestPhone": "+81-80-6666-7777",
+      "checkIn": "2025-08-01T14:00:00.000Z",
+      "checkOut": "2025-08-15T11:00:00.000Z",
+      "status": "reserved",
+      "totalAmount": 500000,
+      "notes": "初回利用"
+    },
+    {
+      "id": "booking-007",
+      "roomNumber": "302",
+      "guestName": "鈴木",
+      "companyName": "株式会社イノベーション",
+      "numberOfGuests": 1,
+      "guestEmail": "suzuki@example.com",
+      "guestPhone": "+81-80-7777-8888",
+      "checkIn": "2025-07-10T16:00:00.000Z",
+      "checkOut": "2025-07-28T11:00:00.000Z",
+      "status": "checked_out",
+      "totalAmount": 700000,
+      "notes": "長期滞在"
+    },
+    {
+      "id": "booking-008",
+      "roomNumber": "303",
+      "guestName": "高橋",
+      "companyName": "",
+      "numberOfGuests": 2,
+      "guestEmail": "takahashi@example.com",
+      "guestPhone": "+81-80-8888-9999",
+      "checkIn": "2025-07-05T14:00:00.000Z",
+      "checkOut": "2025-07-20T11:00:00.000Z",
+      "status": "checked_in",
+      "totalAmount": 450000,
+      "notes": "早朝到着"
+    },
+    {
+      "id": "booking-009",
+      "roomNumber": "401",
+      "guestName": "伊藤",
+      "companyName": "株式会社パシフィックトレーディング",
+      "numberOfGuests": 4,
+      "guestEmail": "ito@example.com",
+      "guestPhone": "+81-80-9999-0000",
+      "checkIn": "2025-08-05T15:00:00.000Z",
+      "checkOut": "2025-08-20T11:00:00.000Z",
+      "status": "checked_out",
+      "totalAmount": 900000,
+      "notes": "ペット同伴可"
+    },
+    {
+      "id": "booking-010",
+      "roomNumber": "402",
+      "guestName": "渡辺",
+      "companyName": "",
+      "numberOfGuests": 1,
+      "guestEmail": "watanabe@example.com",
+      "guestPhone": "+81-80-0000-1111",
+      "checkIn": "2025-07-15T13:00:00.000Z",
+      "checkOut": "2025-07-18T11:00:00.000Z",
+      "status": "checked_out",
+      "totalAmount": 350000,
+      "notes": "ウィークエンド利用"
+    }
+  ]
+}
