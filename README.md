@@ -68,6 +68,12 @@ Use these credentials to test the app:
 - **Email**: admin@staffapp.com
 - **Password**: password123
 
+- **Email**: staff@staffapp.com
+- **Password**: password123
+
+- **Email**: manager@staffapp.com
+- **Password**: password123
+
 ## Project Structure
 
 ```
