@@ -66,14 +66,12 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
   AuthNotifier(this._authRepository, this._localStorage) : super(const AuthState());
 
-  // Initialize auth state from local storage
   Future<void> initializeAuth() async {
     if (state.isInitialized) return;
     
     state = state.copyWith(isLoading: true);
     
     try {
-      // Ensure we have a properly initialized local storage instance
       _localStorage = await LocalStorageService.getInstance();
       
       if (_localStorage.hasValidSession()) {
@@ -82,7 +80,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
         
         if (email != null && name != null) {
           final user = User(
-            id: '1', // You might want to store this in local storage too
+            id: '1', 
             email: email,
             name: name,
           );
@@ -120,36 +118,31 @@ class AuthNotifier extends StateNotifier<AuthState> {
   }
 
   Future<bool> login(String email, String password) async {
-    // Clear previous errors and validate
     clearFieldErrors();
     validateEmail(email.trim());
     validatePassword(password);
     
-    // Check if form is valid
     if (!isFormValid()) {
       return false;
     }
     
-    // Set loading state
     state = state.copyWith(
       isLoading: true, 
       error: null,
     );
     
     try {
-      // Ensure local storage is initialized
       if (!_localStorage.isInitialized) {
         _localStorage = await LocalStorageService.getInstance();
       }
       
       final user = await _authRepository.login(email.trim(), password);
       
-      // Save user data to local storage
       await _localStorage.saveUserInfo(
         email: user.email,
         name: user.name,
       );
-      await _localStorage.saveAuthToken('dummy_token_${user.id}'); // Replace with actual token
+      await _localStorage.saveAuthToken('dummy_token_${user.id}'); 
       
       state = state.copyWith(
         user: user,
@@ -184,20 +177,16 @@ class AuthNotifier extends StateNotifier<AuthState> {
   }
 
   Future<bool> resetPassword(String email) async {
-    // Clear previous errors and validate
     clearFieldErrors();
     validateEmail(email.trim());
     
-    // Check if email is valid
     if (state.emailError != null) {
       return false;
     }
     
-    // Set loading state
     state = state.copyWith(isLoading: true, error: null);
     
     try {
-      // Ensure local storage is initialized
       if (!_localStorage.isInitialized) {
         _localStorage = await LocalStorageService.getInstance();
       }
@@ -226,7 +215,6 @@ class AuthNotifier extends StateNotifier<AuthState> {
   }
 
   Future<void> logout() async {
-    // Ensure local storage is initialized
     if (!_localStorage.isInitialized) {
       _localStorage = await LocalStorageService.getInstance();
     }
@@ -282,7 +270,6 @@ class AuthNotifier extends StateNotifier<AuthState> {
     return state.emailError == null && state.passwordError == null;
   }
 
-  // Check if login form is filled
   void checkLoginFormFilled(String email, String password) {
     final isFilled = email.trim().isNotEmpty && password.isNotEmpty;
     if (isFilled != state.isLoginFormFilled) {
@@ -290,7 +277,6 @@ class AuthNotifier extends StateNotifier<AuthState> {
     }
   }
 
-  // Check if reset form is filled
   void checkResetFormFilled(String email) {
     final isFilled = email.trim().isNotEmpty;
     if (isFilled != state.isResetFormFilled) {
@@ -299,17 +285,13 @@ class AuthNotifier extends StateNotifier<AuthState> {
   }
 }
 
-// Local storage provider
 final localStorageProvider = FutureProvider<LocalStorageService>((ref) async {
   return await LocalStorageService.getInstance();
 });
 
-// Auth provider - creates notifier synchronously
-// The notifier will initialize local storage internally when needed
 final authProvider = StateNotifierProvider<AuthNotifier, AuthState>((ref) {
   final authRepository = ref.watch(authRepositoryProvider);
   
-  // Create a temporary instance that will be replaced after initialization
   final tempLocalStorage = LocalStorageService();
   
   return AuthNotifier(authRepository, tempLocalStorage);

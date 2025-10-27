@@ -41,22 +41,17 @@ class BookingRemoteDataSourceImpl implements BookingRemoteDataSource {
             .map((booking) => BookingModel.fromJson(booking))
             .toList();
         
-        // Client-side date filtering (JSON server doesn't support date range queries)
         if (startDate != null || endDate != null) {
           bookingModels = bookingModels.where((booking) {
             final checkInDate = booking.checkIn;
             final checkOutDate = booking.checkOut;
             
-            // Check if booking overlaps with the selected date range
             if (startDate != null && endDate != null) {
-              // Booking must overlap with the selected date range
               return (checkInDate.isBefore(endDate) || checkInDate.isAtSameMomentAs(endDate)) &&
                      (checkOutDate.isAfter(startDate) || checkOutDate.isAtSameMomentAs(startDate));
             } else if (startDate != null) {
-              // Booking must be on or after start date
               return checkOutDate.isAfter(startDate) || checkOutDate.isAtSameMomentAs(startDate);
             } else if (endDate != null) {
-              // Booking must be on or before end date
               return checkInDate.isBefore(endDate) || checkInDate.isAtSameMomentAs(endDate);
             }
             return true;
