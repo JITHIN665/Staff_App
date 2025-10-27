@@ -91,7 +91,7 @@ class _BookingListContentState extends ConsumerState<_BookingListContent> {
         children: [
           SearchBarWidget(
             controller: _searchController,
-            keyboardType: TextInputType.number,
+            keyboardType: TextInputType.name,
             onChanged: (query) {
               final searchQuery = query.trim().isEmpty ? null : query.trim();
               ref

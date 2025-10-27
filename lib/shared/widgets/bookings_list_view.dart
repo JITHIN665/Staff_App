@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staff_app/shared/theme/app_theme.dart';
 import '../../features/booking/domain/entities/booking.dart';
 import '../helpers/ui_helpers.dart';
 import 'booking_card.dart';
@@ -21,40 +22,49 @@ class BookingsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isLoading && bookings.isEmpty) {
-      return const Center(
-        child: CircularProgressIndicator(),
+      return Container(
+        color: AppTheme.dividerColor,
+        child: const Center(
+          child: CircularProgressIndicator(),
+        ),
       );
     }
 
     if (bookings.isEmpty) {
-      return RefreshIndicator(
-        onRefresh: onRefresh ?? () async {},
-        child: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.7,
-            child: const EmptyStateWidget(
-              message: '予約が見つかりませんでした',
-              icon: Icons.search_off,
+      return Container(
+        color: AppTheme.dividerColor,
+        child: RefreshIndicator(
+          onRefresh: onRefresh ?? () async {},
+          child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height * 0.7,
+              child: const EmptyStateWidget(
+                message: '予約が見つかりませんでした',
+                icon: Icons.search_off,
+              ),
             ),
           ),
         ),
       );
     }
 
-    return RefreshIndicator(
-      onRefresh: onRefresh ?? () async {},
-      child: ListView.builder(
-        physics: const AlwaysScrollableScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: UIHelpers.defaultPadding),
-        itemCount: bookings.length,
-        itemBuilder: (context, index) {
-          final booking = bookings[index];
-          return BookingCard(
-            booking: booking,
-            onTap: () => onBookingTap(booking.id),
-          );
-        },
+    return Container(
+      color: AppTheme.dividerColor,
+      child: RefreshIndicator(
+        onRefresh: onRefresh ?? () async {},
+        child: ListView.builder(
+          physics: const AlwaysScrollableScrollPhysics(),
+          padding: const EdgeInsets.symmetric(horizontal: UIHelpers.defaultPadding),
+          itemCount: bookings.length,
+          itemBuilder: (context, index) {
+            final booking = bookings[index];
+            return BookingCard(
+              booking: booking,
+              onTap: () => onBookingTap(booking.id),
+            );
+          },
+        ),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staff_app/shared/helpers/app_icons.dart';
 import 'package:staff_app/shared/widgets/status.dart';
 import '../../features/booking/domain/entities/booking.dart';
 import '../helpers/ui_helpers.dart';
@@ -17,9 +18,10 @@ class BookingCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(bottom: 12),
+        margin: const EdgeInsets.only(bottom: 4,top: 4),
         decoration: BoxDecoration(
           border: Border(left: BorderSide(color: statusColor, width: 4)),
+          borderRadius: BorderRadius.all(Radius.circular(5)),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
@@ -50,11 +52,7 @@ class BookingCard extends StatelessWidget {
               const SizedBox(height: 12),
               Row(
                 children: [
-                  Icon(
-                    Icons.calendar_today,
-                    size: 14,
-                    color: AppTheme.textTertiaryColor,
-                  ),
+                  AppIcons.calendarIcon(size: 18, color: AppTheme.primaryColor),
                   const SizedBox(width: 4),
                   Text(
                     UIHelpers.formatDateRange(

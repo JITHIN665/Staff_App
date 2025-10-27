@@ -3,13 +3,11 @@ import '../../features/booking/domain/entities/booking.dart';
 import '../theme/app_theme.dart';
 
 class UIHelpers {
-  // Color helpers
   static const Color primaryBlue = Color(0xFF00338D);
   static const Color lightGrey = Color(0xFFF5F5F5);
   static const Color darkGrey = Color(0xFF666666);
   static const Color textGrey = Color(0xFF999999);
   
-  // Button color helper for form states
   static Color getButtonColor({
     required bool isLoading,
     required bool isFormFilled,
@@ -23,7 +21,6 @@ class UIHelpers {
     }
   }
   
-  // Status color mapping
   static Color getStatusColor(BookingStatus status) {
     switch (status) {
       case BookingStatus.pending:
@@ -58,7 +55,6 @@ class UIHelpers {
     return '$maskedUsername@$domain';
   }
   
-  // Status update button text
   static String getStatusUpdateButtonText(BookingStatus status) {
     switch (status) {
       case BookingStatus.reserved:
@@ -74,7 +70,6 @@ class UIHelpers {
     }
   }
   
-  // Date formatting
   static String formatDate(DateTime date) {
     return '${date.year}/${date.month.toString().padLeft(2, '0')}/${date.day.toString().padLeft(2, '0')}';
   }
@@ -83,7 +78,6 @@ class UIHelpers {
     return '${formatDate(checkIn)} - ${formatDate(checkOut)}';
   }
   
-  // Text styles
   static const TextStyle headerTextStyle = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
@@ -117,7 +111,6 @@ class UIHelpers {
     color: Colors.grey,
   );
   
-  // Button styles
   static ButtonStyle get primaryButtonStyle => ElevatedButton.styleFrom(
     backgroundColor: primaryBlue,
     foregroundColor: Colors.white,
@@ -134,7 +127,6 @@ class UIHelpers {
     ),
   );
   
-  // Input decoration
   static InputDecoration searchInputDecoration({Widget? prefixIcon}) => InputDecoration(
     hintText: '客室名または名前で検索',
     hintStyle: const TextStyle(color: Colors.grey),
@@ -155,7 +147,6 @@ class UIHelpers {
     ),
   );
   
-  // Container decorations
   static BoxDecoration get cardDecoration => BoxDecoration(
     color: Colors.white,
     boxShadow: [
